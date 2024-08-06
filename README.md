@@ -26,7 +26,7 @@ Some scripts for WSL (Windows Subsystem for Linux).
   `gc` is an alias for `git clone 'url'`.
 
 - ### chk
-  `chk` is an alias for `git checkout -b 'branch'` with checks existing and current branches.
+  `chk` is an alias for `git checkout -b 'branch'` with checks for existing and current branches.
 
 - ### push
   `push` is an alias for `git push` with two optional arguments passed in order (`git push arg1 arg2`).
