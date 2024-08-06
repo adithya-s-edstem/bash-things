@@ -1,6 +1,6 @@
 alias merge_main='merge_main'
 alias gc='git_clone'
-alias brn='git_checkout_branch'
+alias chk='git_checkout_branch'
 alias push='git_push'
 alias pull='git_pull'
 alias commit='git_commit_all'
@@ -20,7 +20,21 @@ function git_clone(){
 }
 
 function git_checkout_branch(){
-  [ -z "$1" ] && { printf "usage: brn <branch_name> \n"; return 1;}
+  [ -z "$1" ] && { printf "usage: chk <branch_name> \n"; return 1;}
+
+  CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+  if [[ "$1" == "$CURRENT_BRANCH" ]]; then
+    printf "Already in $1 \n";
+    return 0;
+  fi
+
+  if git show-ref --quiet refs/heads/$1; then
+    printf "$1 already exists, switching..\n"
+    git checkout "$1"
+    return 0;
+  fi
+  
   git checkout -b "$1"
   return 0;
 }
