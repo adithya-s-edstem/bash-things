@@ -16,3 +16,6 @@ Keeps the local main branch updated instead of just the current branch. Also sho
 
 ### 2. gc
 `gc` is an alias for `git clone 'url'`.
+
+### 3. brn
+`brn` is an alias for `git checkout -b 'branch'`.
