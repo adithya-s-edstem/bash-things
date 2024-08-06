@@ -11,13 +11,13 @@ function merge_main(){
 }
 
 function git_clone(){
-  [ -z "$1" ] && { printf "usage: gc <repo url>"; return 1;}
+  [ -z "$1" ] && { printf "usage: gc <repo url> \n"; return 1;}
   git clone "$1"
   return 0;
 }
 
 function git_checkout_branch(){
-  [ -z "$1" ] && { print "usage: brn <branch_name>"; return 1;}
+  [ -z "$1" ] && { printf "usage: brn <branch_name> \n"; return 1;}
   git checkout -b "$1"
   return 0;
 }
