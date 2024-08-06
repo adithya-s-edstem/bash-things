@@ -3,6 +3,7 @@ alias gc='git_clone'
 alias brn='git_checkout_branch'
 alias push='git_push'
 alias pull='git_pull'
+alias commit='git_commit_all'
 
 function merge_main(){
   CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
@@ -34,4 +35,11 @@ function git_pull(){
   [ -z "$1" ] && git pull
   [ -z "$2" ] && git pull "$1"
   git pull "$1" "$2"
+}
+
+function git_commit_all(){
+  [ -z "$1" ] && { printf "usage: commit 'message' \n"; return 1;}
+  git add .
+  git commit -m "$1"
+  return 0;
 }
