@@ -26,15 +26,17 @@ function git_checkout_branch(){
 }
 
 function git_push(){
-  [ -z "$1" ] && git push
-  [ -z "$2" ] && git push "$1"
+  [ -z "$1" ] && { git push; return 0; }
+  [ -z "$2" ] && { git push "$1"; return 0; }
   git push "$1" "$2"
+  return 0;
 }
 
 function git_pull(){
-  [ -z "$1" ] && git pull
-  [ -z "$2" ] && git pull "$1"
+  [ -z "$1" ] && { git pull; return 0; }
+  [ -z "$2" ] && { git pull "$1"; return 0; }
   git pull "$1" "$2"
+  return 0;
 }
 
 function git_commit_all(){
