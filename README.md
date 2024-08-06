@@ -22,3 +22,6 @@ Keeps the local main branch updated instead of just the current branch. Also sho
 
 ### 4. push
 `push` is an alias for `git push` with two optional arguments passed in order (`git push arg1 arg2`).
+
+### 5. pull
+`pull` is an alias for `git pull` with two optional arguments passed in order (`git pull arg1 arg2`).
