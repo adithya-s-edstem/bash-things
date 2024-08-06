@@ -6,12 +6,12 @@ Some scripts for WSL (Windows Subsystem for Linux).
 1. Copy .bash_aliases to root of WSL folder.
 
 ## Index
-- [merge_main](#1-merge_main)
-- [gc](#2-gc)
-- [brn](#3-brn)
-- [push](#4-push)
-- [pull](#5-pull)
-- [commit](#6-commit)
+- [merge_main](#merge_main)
+- [gc](#gc)
+- [chk](#chk)
+- [push](#push)
+- [pull](#pull)
+- [commit](#commit)
 
 ## Scripts
 
@@ -25,8 +25,8 @@ Some scripts for WSL (Windows Subsystem for Linux).
 - ### gc
   `gc` is an alias for `git clone 'url'`.
 
-- ### brn
-  `brn` is an alias for `git checkout -b 'branch'`.
+- ### chk
+  `chk` is an alias for `git checkout -b 'branch'`.
 
 - ### push
   `push` is an alias for `git push` with two optional arguments passed in order (`git push arg1 arg2`).
