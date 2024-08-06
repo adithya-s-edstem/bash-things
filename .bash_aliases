@@ -1,6 +1,7 @@
 alias merge_main='merge_main'
 alias gc='git_clone'
 alias brn='git_checkout_branch'
+alias push='git_push'
 
 function merge_main(){
   CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
@@ -20,4 +21,10 @@ function git_checkout_branch(){
   [ -z "$1" ] && { printf "usage: brn <branch_name> \n"; return 1;}
   git checkout -b "$1"
   return 0;
+}
+
+function git_push(){
+  [ -z "$1" ] && git push
+  [ -z "$2" ] && git push "$1"
+  git push "$1" "$2"
 }
