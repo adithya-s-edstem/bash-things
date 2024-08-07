@@ -100,11 +100,10 @@ Some scripts originally written for WSL (Windows Subsystem for Linux). Should be
     ```
 
 - ### commit
-  `commit` will stage all files and commit the changes with a commit message as a required argument.
+  `commit` will check if any files are staged and commits them with a message. If no files are staged, `commit` will stage all files and commit them.
 
   **Usage**
 
-  - Stage and commit all files with message:
     ```
     commit 'Commit Message'
     ```

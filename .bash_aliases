@@ -63,9 +63,16 @@ function git_add(){
 
 function git_commit_all(){
   [ -z "$1" ] && { printf "usage: commit 'message' \n"; return 1;}
-  git add .
+  
+if git diff --cached --exit-code > /dev/null; then
+    printf "No staged files found, staging all files..\n"
+    git add .
+  else
+    printf "Staged files found, committing..\n"
+  fi
+
   git commit -m "$1"
-  return 0;
+  return 0
 }
 
 function git_fetch(){
