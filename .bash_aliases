@@ -8,6 +8,9 @@ alias pull='git_pull'
 alias add='git_add'
 alias commit='git_commit_all'
 alias fetch='git_fetch'
+alias reset='git_reset'
+alias reset_soft='git_reset_soft'
+alias reset_hard='git_reset_hard'
 
 function merge_main(){
   CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
@@ -84,5 +87,24 @@ if git diff --cached --exit-code > /dev/null; then
 
 function git_fetch(){
   git fetch
+  return 0;
+}
+
+function git_reset(){
+  git reset --hard
+  return 0;
+}
+
+function git_reset_soft(){
+  [ -z "$1" ] && { printf "Soft resetting last commit..\n"; git reset --soft HEAD~1; return 0; }
+  printf "Soft resetting last $1 commits..\n"
+  git reset --soft HEAD~"$1"
+  return 0;
+}
+
+function git_reset_hard(){
+  [ -z "$1" ] && { printf "Hard resetting last commit..\n"; git reset --hard HEAD~1; return 0; }
+  printf "Hard resetting last $1 commits..\n"
+  git reset --hard HEAD~"$1"
   return 0;
 }

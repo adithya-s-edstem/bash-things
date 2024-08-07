@@ -14,6 +14,9 @@ Some scripts originally written for WSL (Windows Subsystem for Linux). Should be
 - [add](#add)
 - [commit](#commit)
 - [fetch](#fetch)
+- [reset](#reset)
+- [reset_soft](#reset_soft)
+- [reset_hard](#reset_hard)
 
 ## Scripts
 
@@ -110,3 +113,36 @@ Some scripts originally written for WSL (Windows Subsystem for Linux). Should be
 
 - ### fetch
   `fetch` is an alias for `git fetch`. Fetch doesn't take any arguments for now.
+
+- ### reset
+  `reset` is an alias for `git reset --hard`.
+
+- ### reset_soft
+  `reset_soft` is an alias for `git reset --soft HEAD~1`.
+
+  **Usage**
+
+    - Soft reset last commit:
+      ```
+      reset_soft
+      ```
+
+    - Soft reset last 5 commits:
+      ```
+      reset_soft 5
+      ```
+
+- ### reset_hard
+  `reset_hard` is an alias for `git reset --hard HEAD~1`.
+
+  **Usage**
+
+    - Hard reset last commit:
+      ```
+      reset_hard
+      ```
+
+    - Hard reset last 5 commits:
+      ```
+      reset_hard 5
+      ```
