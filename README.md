@@ -31,18 +31,36 @@ Some scripts for WSL (Windows Subsystem for Linux).
 
   **Usage**
 
-  `gc http://github.com/example/exampleRepo`
-  `gc http://github.com/example/exampleRepo --depth=1`
+  Clone exampleRepo:
+
+  ```
+  gc http://github.com/example/exampleRepo
+  ```
+
+  Clone exampleRepo with a depth of 1:
+
+  ```
+  gc http://github.com/example/exampleRepo --depth=1
+  ```
 
 - ### chk
   `chk` is an alias for `git checkout -b 'branch'` with checks for existing and current branches.
 
-  If a branch already exists, `chk` won't fail like git checkout -b does instead it'll switch to the existing branch.
+  If a branch already exists, `chk` won't fail like `git checkout -b` does, instead it'll switch to the existing branch.
 
   **Usage**
 
-  `chk main`
-  `chk newBranch`
+  Switch to main branch:
+
+  ```
+  chk main
+  ```
+
+  Create and switch to newBranch if newBranch is not already made:
+
+  ```
+  chk newBranch
+  ```
 
 - ### push
   `push` is an alias for `git push`.
@@ -51,18 +69,36 @@ Some scripts for WSL (Windows Subsystem for Linux).
 
   **Usage**
 
-  `push`
-  `push origin main`
+  Push to current remote branch:
+
+  ```
+  push
+  ```
+
+  Push to remote main:
+
+  ```
+  push origin main
+  ```
 
 - ### pull
   `pull` is an alias for `git pull`.
-  
+
   Arguments passed to `pull` will be passed as `git pull arg1 arg2..argN`.
 
   **Usage**
 
-  `pull`
-  `pull origin main`
+  Pull the current branch: 
+
+  ```
+  pull
+  ```
+
+  Pull from remote main:
+
+  ```
+  pull origin main
+  ```
 
 - ### add
   `add` is an alias for `git add .`. `add` will stage all files if no arguments are provided.
@@ -71,15 +107,28 @@ Some scripts for WSL (Windows Subsystem for Linux).
 
   **Usage**
 
-  `add` - Stages all files
-  `add fileName.html fileName.css` - Stages fileName.html and fileName.css
+  Stage all files:
+
+  ```
+  add
+  ```
+
+  Stage selected files:
+
+  ```
+  add fileName.html fileName.css
+  ```
 
 - ### commit
   `commit` will stage all files and commit the changes with a commit message as a required argument.
 
   **Usage**
 
-  `commit 'Commit Message'`
+  Stage and commit all files with message:
+
+  ```
+  commit 'Commit Message'
+  ```
 
 - ### fetch
-  `fetch` is an alias for `git fetch`.
+  `fetch` is an alias for `git fetch`. Fetch doesn't take any arguments for now.
