@@ -56,19 +56,28 @@ function git_checkout_branch(){
 }
 
 function git_push(){
-  [ -z "$1" ] && { git push; return 0; }
+  [ -z "$1" ] && {
+    git push && return 0; 
+    return 1;  
+  }
   git push "$@" && return 0;
   return 1;
 }
 
 function git_pull(){
-  [ -z "$1" ] && { git pull; return 0; }
+  [ -z "$1" ] && {
+    git pull && return 0;
+    return 1;  
+  }
   git pull "$@" && return 0;
   return 1;
 }
 
 function git_add(){
-  [ -z "$1" ] && { git add .; return 0; }
+  [ -z "$1" ] && {
+    git add . && return 0;
+    return 1;
+  }
   git add "$@" && return 0;
   return 1;
 }
