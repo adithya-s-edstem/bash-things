@@ -38,9 +38,16 @@ function git_checkout_branch(){
     git checkout "$1"
     return 0;
   fi
-  
+
+  if git ls-remote --heads origin "$1" | grep -q "$1"; then
+    printf "$1 found on remote, switching..\n"
+    git checkout -t origin/$1
+    return 0
+  fi
+
+  printf "Creating new branch $1\n"
   git checkout -b "$1"
-  return 0;
+  return 0
 }
 
 function git_push(){
