@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 alias merge_main='merge_main'
 alias gc='git_clone'
 alias chk='git_checkout_branch'
