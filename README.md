@@ -25,9 +25,7 @@ Some scripts originally written for WSL (Windows Subsystem for Linux). Should be
   Keeps the local main branch updated instead of just the current branch. Also shorter.
 
 - ### gc
-  `gc` is an alias for `git clone 'url'`.
-
-  Arguments passed to `gc` will be passed as `git clone url arg1 arg2..argN`
+  `gc` is an alias for `git clone 'url'`. Arguments passed to `gc` will be passed as `git clone url arg1 arg2..argN`
 
   **Usage**
 
@@ -44,9 +42,7 @@ Some scripts originally written for WSL (Windows Subsystem for Linux). Should be
   ```
 
 - ### chk
-  `chk` is an alias for `git checkout -b 'branch'` with checks for existing and current branches.
-
-  If a branch already exists, `chk` won't fail like `git checkout -b` does, instead it'll switch to the existing branch.
+  `chk` is an alias for `git checkout -b 'branch'` with checks for existing and current branches.If a branch already exists, `chk` won't fail like `git checkout -b` does, instead it'll switch to the existing branch.
 
   **Usage**
 
@@ -63,72 +59,66 @@ Some scripts originally written for WSL (Windows Subsystem for Linux). Should be
   ```
 
 - ### push
-  `push` is an alias for `git push`.
-
-  Arguments passed to `push` will be passed as `git push arg1 arg2..argN`.
+  `push` is an alias for `git push`. Arguments passed to `push` will be passed as `git push arg1 arg2..argN`.
 
   **Usage**
 
-  Push to current remote branch:
+  - Push to current remote branch:
 
-  ```
-  push
-  ```
+    ```
+    push
+    ```
 
-  Push to remote main:
+  - Push to remote main:
 
-  ```
-  push origin main
-  ```
+    ```
+    push origin main
+    ```
 
 - ### pull
-  `pull` is an alias for `git pull`.
-
-  Arguments passed to `pull` will be passed as `git pull arg1 arg2..argN`.
+  `pull` is an alias for `git pull`. Arguments passed to `pull` will be passed as `git pull arg1 arg2..argN`.
 
   **Usage**
 
-  Pull the current branch: 
+  - Pull the current branch: 
 
-  ```
-  pull
-  ```
+    ```
+    pull
+    ```
 
-  Pull from remote main:
+  - Pull from remote main:
 
-  ```
-  pull origin main
-  ```
+    ```
+    pull origin main
+    ```
 
 - ### add
-  `add` is an alias for `git add .`. `add` will stage all files if no arguments are provided.
-
-  Arguments passed to `add` will be passed as `git add arg1 arg2..argN`
+  `add` is an alias for `git add .`. `add` will stage all files if no arguments are provided. Arguments passed to `add` will be passed as `git add arg1 arg2..argN`
 
   **Usage**
 
-  Stage all files:
+  - Stage all files:
 
-  ```
-  add
-  ```
+    ```
+    add
+    ```
 
-  Stage selected files:
+  - Stage selected files:
 
-  ```
-  add fileName.html fileName.css
-  ```
+    ```
+    add fileName.html fileName.css
+    ```
 
 - ### commit
   `commit` will stage all files and commit the changes with a commit message as a required argument.
 
   **Usage**
 
-  Stage and commit all files with message:
+  - Stage and commit all files with message:
 
-  ```
-  commit 'Commit Message'
-  ```
+    ```
+    commit 'Commit Message'
+    ```
 
 - ### fetch
   `fetch` is an alias for `git fetch`. Fetch doesn't take any arguments for now.
