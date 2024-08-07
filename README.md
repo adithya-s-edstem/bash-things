@@ -17,6 +17,7 @@ Some scripts originally written for WSL (Windows Subsystem for Linux). Should be
 - [reset](#reset)
 - [reset_soft](#reset_soft)
 - [reset_hard](#reset_hard)
+- [revert](#revert)
 
 ## Scripts
 
@@ -145,4 +146,18 @@ Some scripts originally written for WSL (Windows Subsystem for Linux). Should be
     - Hard reset last 5 commits:
       ```
       reset_hard 5
+      ```
+
+- ### revert
+  `revert` is a wrapper for `git revert`. If no hash is provided, it will revert the last commit.
+
+  **Usage**
+
+    - Revert last commit:
+      ```
+      revert
+      ```
+    - Revert a particular commit
+      ```
+      revert 39dd6b0
       ```

@@ -11,6 +11,7 @@ alias fetch='git_fetch'
 alias reset='git_reset'
 alias reset_soft='git_reset_soft'
 alias reset_hard='git_reset_hard'
+alias revert='git_revert'
 
 function merge_main(){
   CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
@@ -107,4 +108,16 @@ function git_reset_hard(){
   printf "Hard resetting last $1 commits..\n"
   git reset --hard HEAD~"$1"
   return 0;
+}
+
+function git_revert(){
+  [ -z "$1" ] && {
+    LAST_COMMIT=$(git rev-parse --short HEAD);
+    printf "No hash provided. Reverting latest commit $LAST_COMMIT..\n";
+    git revert $LAST_COMMIT && return 0;
+    return 1;
+  }
+  printf "Trying to revert commit $1..\n";
+  git revert $1 && return 0;
+  return 1;
 }
