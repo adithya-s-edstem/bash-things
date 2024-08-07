@@ -14,23 +14,24 @@ alias reset_hard='git_reset_hard'
 alias revert='git_revert'
 
 function merge_main(){
-  CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-  git checkout main
-  git pull
-  git checkout $CURRENT_BRANCH
-  git merge main
+  CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD);
+  git checkout main;
+  git pull;
+  git checkout $CURRENT_BRANCH;
+  git merge main && return 0;
+  return 1;
 }
 
 function git_clone(){
-  [ -z "$1" ] && { printf "usage: gc <repo url> \n"; return 1;}
-  git clone "$@"
-  return 0;
+  [ -z "$1" ] && { printf "usage: gc <repo url> \n"; return 0;}
+  git clone "$@" && return 0;
+  return 1;
 }
 
 function git_checkout_branch(){
-  [ -z "$1" ] && { printf "usage: chk <branch_name> \n"; return 1;}
+  [ -z "$1" ] && { printf "usage: chk <branch_name>\n"; return 0;}
 
-  CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+  CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD);
 
   if [[ "$1" == "$CURRENT_BRANCH" ]]; then
     printf "Already in $1 \n";
@@ -38,76 +39,86 @@ function git_checkout_branch(){
   fi
 
   if git show-ref --quiet refs/heads/$1; then
-    printf "$1 found, switching..\n"
-    git checkout "$1"
-    return 0;
+    printf "$1 found, switching..\n";
+    git checkout "$1" && return 0;
+    return 1;
   fi
 
   if git ls-remote --heads origin "$1" | grep -q "$1"; then
-    printf "$1 found on remote, switching..\n"
-    git checkout -t origin/$1
-    return 0
+    printf "$1 found on remote, switching..\n";
+    git checkout -t origin/$1 && return 0;
+    return 1;
   fi
 
-  printf "Creating new branch $1\n"
-  git checkout -b "$1"
-  return 0
+  printf "Creating new branch $1\n";
+  git checkout -b "$1" && return 0;
+  return 1;
 }
 
 function git_push(){
   [ -z "$1" ] && { git push; return 0; }
-  git push "$@"
-  return 0;
+  git push "$@" && return 0;
+  return 1;
 }
 
 function git_pull(){
   [ -z "$1" ] && { git pull; return 0; }
-  git pull "$@"
-  return 0;
+  git pull "$@" && return 0;
+  return 1;
 }
 
 function git_add(){
   [ -z "$1" ] && { git add .; return 0; }
-  git add "$@"
-  return 0;
+  git add "$@" && return 0;
+  return 1;
 }
 
 function git_commit_all(){
-  [ -z "$1" ] && { printf "usage: commit 'message' \n"; return 1;}
+  [ -z "$1" ] && { printf "usage: commit 'message' \n"; return 0;}
   
 if git diff --cached --exit-code > /dev/null; then
-    printf "No staged files found, staging all files..\n"
-    git add .
+    printf "No staged files found, staging all files..\n";
+    git add .;
   else
-    printf "Staged files found, committing..\n"
+    printf "Staged files found, committing..\n";
   fi
 
-  git commit -m "$1"
-  return 0
+  git commit -m "$1" && return 0;
+  return 1;
 }
 
 function git_fetch(){
-  git fetch
-  return 0;
+  git fetch && return 0;
+  return 1;
 }
 
 function git_reset(){
-  git reset --hard
-  return 0;
+  git reset --hard && return 0;
+  return 1;
 }
 
 function git_reset_soft(){
-  [ -z "$1" ] && { printf "Soft resetting last commit..\n"; git reset --soft HEAD~1; return 0; }
-  printf "Soft resetting last $1 commits..\n"
-  git reset --soft HEAD~"$1"
-  return 0;
+  [ -z "$1" ] && {
+    LAST_COMMIT=$(git rev-parse --short HEAD);
+    printf "Soft resetting last commit $LAST_COMMIT..\n";
+    git reset --soft HEAD~1 && return 0;
+    return 1;
+  }
+  printf "Soft resetting last $1 commits..\n";
+  git reset --soft HEAD~"$1" && return 0;
+  return 1;
 }
 
 function git_reset_hard(){
-  [ -z "$1" ] && { printf "Hard resetting last commit..\n"; git reset --hard HEAD~1; return 0; }
-  printf "Hard resetting last $1 commits..\n"
-  git reset --hard HEAD~"$1"
-  return 0;
+  [ -z "$1" ] && {
+    LAST_COMMIT=$(git rev-parse --short HEAD);
+    printf "Hard resetting last commit $LAST_COMMIT..\n";
+    git reset --hard HEAD~1 && return 0;
+    return 1;
+  }
+  printf "Hard resetting last $1 commits..\n";
+  git reset --hard HEAD~"$1" && return 0;
+  return 1;
 }
 
 function git_revert(){
