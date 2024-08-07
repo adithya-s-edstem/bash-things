@@ -1,6 +1,6 @@
 # bash-things
 
-Some scripts for WSL (Windows Subsystem for Linux).
+Some scripts originally written for WSL (Windows Subsystem for Linux). Should be compatible with all bash environments (macOS, msys, cygwin, linux).
 
 ## Installation
 1. Copy .bash_aliases to root of WSL folder.
