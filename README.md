@@ -56,6 +56,7 @@ Some scripts for WSL (Windows Subsystem for Linux).
 
 - ### pull
   `pull` is an alias for `git pull`.
+  
   Arguments passed to `pull` will be passed as `git pull arg1 arg2..argN`.
 
   **Usage**

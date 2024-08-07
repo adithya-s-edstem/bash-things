@@ -54,7 +54,7 @@ function git_pull(){
 }
 
 function git_add(){
-  [ -z "$1"] && { git add .; return 0; }
+  [ -z "$1" ] && { git add .; return 0; }
   git add "$@"
   return 0;
 }
