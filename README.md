@@ -2,8 +2,18 @@
 
 Some scripts originally written for WSL (Windows Subsystem for Linux). Should be compatible with any OS running a bash environment.
 
+*README (WIP)*
+
 ## Installation
-1. Copy .bash_aliases to root of WSL folder.
+
+### WSL
+1. Copy .bash_aliases to root of WSL folder (`~`).
+
+### Any other bash environment
+- If you already have a .bash_aliases file, copy the contents from here to the end of the existing file..
+- If you don't have one, copy this to root, add `source ./bash_aliases` to the end of your `.bashrc` file.
+
+*Compatibility with other shells (zsh, fsh, etc.) haven't been tested*
 
 ## Chaining commands
 
