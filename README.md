@@ -5,6 +5,15 @@ Some scripts originally written for WSL (Windows Subsystem for Linux). Should be
 ## Installation
 1. Copy .bash_aliases to root of WSL folder.
 
+## Chaining commands
+
+All scripts return an error value, you can chain multiple commands to save time.
+
+- eg: Merge all changes from main and push
+  ```
+  merge_main && push
+  ```
+
 ## Index
 - [merge_main](#merge_main)
 - [gc](#gc)
@@ -44,7 +53,7 @@ Some scripts originally written for WSL (Windows Subsystem for Linux). Should be
     ```
 
 - ### chk
-  `chk` is an alias for `git checkout -b 'branch'`. If a branch already exists, `chk` won't fail like `git checkout -b` does, instead it'll switch to the existing branch.
+  `chk` is an alias for `git checkout [-b] 'branch'`. If a branch already exists, `chk` won't fail like `git checkout -b` does, instead it'll switch to the existing branch. **No more confusion between -b or not.**
 
   **Usage**
 
