@@ -34,7 +34,7 @@ function git_checkout_branch(){
   CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD);
 
   if [[ "$1" == "$CURRENT_BRANCH" ]]; then
-    printf "Already in $1 \n";
+    printf "Already in $1\n";
     return 0;
   fi
 
@@ -49,8 +49,8 @@ function git_checkout_branch(){
     git checkout -t origin/$1 && return 0;
     return 1;
   fi
-
-  printf "Creating new branch $1\n";
+  printf "$1 not found on remote or local!\n";
+  printf "Creating new branch $1..\n";
   git checkout -b "$1" && return 0;
   return 1;
 }
@@ -79,6 +79,7 @@ function git_pull(){
 
 function git_add(){
   [ -z "$1" ] && {
+    printf 'Staging all files..\n';
     git add . && return 0;
     return 1;
   }
@@ -93,19 +94,22 @@ if git diff --cached --exit-code > /dev/null; then
     printf "No staged files found, staging all files..\n";
     git add .;
   else
-    printf "Staged files found, committing..\n";
+    printf "Staged files found..\n";
   fi
-
+      CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD);
+  printf "Committing to origin/$CURRENT_BRANCH..\n";
   git commit -m "$1" && return 0;
   return 1;
 }
 
 function git_fetch(){
+  printf 'Fetching from origin..\n';
   git fetch && return 0;
   return 1;
 }
 
 function git_reset(){
+  printf 'Resetting all uncommitted changes..\n';
   git reset --hard && return 0;
   return 1;
 }
