@@ -7,9 +7,6 @@ function banner() {
   printf "@adithya-s-edstem\n\n"
 }
 
-banner
-printf "Loaded in current shell.\n"
-
 alias merge_main='merge_main'
 alias gc='git_clone'
 alias chk='git_checkout_branch'
