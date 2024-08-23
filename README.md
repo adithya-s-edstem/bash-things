@@ -78,7 +78,7 @@ All scripts return an error value, you can chain multiple commands to save time.
     ```
 
 - ### push
-  `push` is an alias for `git push`. Arguments passed to `push` will be passed as `git push arg1 arg2..argN`.
+  `push` without arguments is an alias for `git push origin $CURRENT_BRANCH`. Arguments passed to `push` will be passed as `git push arg1 arg2..argN`.
 
   **Usage**
 
@@ -93,7 +93,7 @@ All scripts return an error value, you can chain multiple commands to save time.
     ```
 
 - ### pull
-  `pull` is an alias for `git pull`. Arguments passed to `pull` will be passed as `git pull arg1 arg2..argN`.
+  `pull` without arguments is an alias for `git pull origin $CURRENT_BRANCH`. Arguments passed to `pull` will be passed as `git pull arg1 arg2..argN`.
 
   **Usage**
 

@@ -15,9 +15,13 @@ alias revert='git_revert'
 
 function merge_main(){
   CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD);
+  printf "Checking out to main\n";
   git checkout main;
+  printf "Pulling latest changes\n";
   git pull;
+  printf "Checking out to $CURRENT_BRANCH\n";
   git checkout $CURRENT_BRANCH;
+  printf "Merging main to $CURRENT_BRANCH..\n";
   git merge main && return 0;
   return 1;
 }
