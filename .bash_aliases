@@ -57,7 +57,9 @@ function git_checkout_branch(){
 
 function git_push(){
   [ -z "$1" ] && {
-    git push && return 0; 
+    CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD);
+    printf "Pushing to origin/$CURRENT_BRANCH..\n";
+    git push origin "$CURRENT_BRANCH" && return 0; 
     return 1;  
   }
   git push "$@" && return 0;
@@ -66,7 +68,9 @@ function git_push(){
 
 function git_pull(){
   [ -z "$1" ] && {
-    git pull && return 0;
+    CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD);
+    printf "Pulling from origin/$CURRENT_BRANCH..\n";
+    git pull origin "$CURRENT_BRANCH" && return 0;
     return 1;  
   }
   git pull "$@" && return 0;
