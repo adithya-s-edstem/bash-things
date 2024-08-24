@@ -4,8 +4,10 @@ VERSION=0.0.1
 
 function banner() {
   printf "bash-things - $VERSION\n"
-  printf "@adithya-s-edstem\n\n"
 }
+
+banner
+printf "loaded in current shell"
 
 alias merge_main='merge_main'
 alias gc='git_clone'
