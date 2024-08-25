@@ -7,7 +7,7 @@ function banner() {
 }
 
 banner
-printf "loaded in current shell"
+printf "loaded in current shell\n"
 
 alias merge_main='merge_main'
 alias gc='git_clone'
