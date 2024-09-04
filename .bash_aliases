@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VERSION=0.0.1
+VERSION=0.0.2
 
 function banner() {
   printf "bash-things - $VERSION\n"
@@ -122,7 +122,7 @@ function git_commit_all() {
     printf "Staged files found..\n"
   fi
   CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-  printf "Committing to origin/$CURRENT_BRANCH..\n"
+  printf "Committing to $CURRENT_BRANCH..\n"
   git commit -m "$1" && return 0
   return 1
 }
