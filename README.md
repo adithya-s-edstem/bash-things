@@ -63,7 +63,7 @@ All scripts return an error value, you can chain multiple commands to save time.
     ```
 
 - ### chk
-  `chk` is an alias for `git checkout [-b] 'branch'`. If a branch already exists, `chk` won't fail like `git checkout -b` does, instead it'll switch to the existing branch. **No more confusion between -b or not.**
+  `chk` is an alias for `git checkout [-b] 'branch'`. `chk` can check if a branch already exists in either the local repository or the remote repository. If a branch already exists, it'll switch to the existing branch and pull if it's a remote one. **No more confusion between -b or not**.
 
   **Usage**
 
