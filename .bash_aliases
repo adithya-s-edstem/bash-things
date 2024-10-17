@@ -1,29 +1,29 @@
 #!/usr/bin/env bash
 
-VERSION=0.0.2
+VERSION=0.0.3
 
-function banner() {
+function bash_things_banner() {
   printf "bash-things - $VERSION\n"
 }
 
-banner
+bash_things_banner
 printf "loaded in current shell\n"
 
-alias merge_main='merge_main'
-alias gc='git_clone'
-alias chk='git_checkout_branch'
-alias push='git_push'
-alias pull='git_pull'
-alias add='git_add'
-alias commit='git_commit_all'
-alias fetch='git_fetch'
-alias reset='git_reset'
-alias reset_soft='git_reset_soft'
+alias merge_main='bash_things_merge_main'
+alias gc='bash_things_git_clone'
+alias chk='bash_things_git_checkout_branch'
+alias push='bash_things_git_push'
+alias pull='bash_things_git_pull'
+alias add='bash_things_git_add'
+alias commit='bash_things_git_commit_all'
+alias fetch='bash_things_git_fetch'
+alias reset='bash_things_git_reset'
+alias reset_soft='bash_things_git_reset_soft'
 alias reset_hard='git_reset_hard'
-alias revert='git_revert'
+alias revert='bash_things_git_revert'
 
-function merge_main() {
-  banner
+function bash_things_merge_main() {
+  bash_things_banner
   CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
   git checkout main
   git pull
@@ -32,8 +32,8 @@ function merge_main() {
   return 1
 }
 
-function git_clone() {
-  banner
+function bash_things_git_clone() {
+  bash_things_banner
   [ -z "$1" ] && {
     printf "usage: gc <repo url> \n"
     return 0
@@ -42,8 +42,8 @@ function git_clone() {
   return 1
 }
 
-function git_checkout_branch() {
-  banner
+function bash_things_git_checkout_branch() {
+  bash_things_banner
   [ -z "$1" ] && {
     printf "usage: chk <branch_name>\n"
     return 0
@@ -73,8 +73,8 @@ function git_checkout_branch() {
   return 1
 }
 
-function git_push() {
-  banner
+function bash_things_git_push() {
+  bash_things_banner
   [ -z "$1" ] && {
     CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
     printf "Pushing to origin/$CURRENT_BRANCH..\n"
@@ -85,8 +85,8 @@ function git_push() {
   return 1
 }
 
-function git_pull() {
-  banner
+function bash_things_git_pull() {
+  bash_things_banner
   [ -z "$1" ] && {
     CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
     printf "Pulling from origin/$CURRENT_BRANCH..\n"
@@ -97,8 +97,8 @@ function git_pull() {
   return 1
 }
 
-function git_add() {
-  banner
+function bash_things_git_add() {
+  bash_things_banner
   [ -z "$1" ] && {
     printf 'Staging all files..\n'
     git add . && return 0
@@ -108,8 +108,8 @@ function git_add() {
   return 1
 }
 
-function git_commit_all() {
-  banner
+function bash_things_git_commit_all() {
+  bash_things_banner
   [ -z "$1" ] && {
     printf "usage: commit 'message' \n"
     return 0
@@ -127,22 +127,22 @@ function git_commit_all() {
   return 1
 }
 
-function git_fetch() {
-  banner
+function bash_things_git_fetch() {
+  bash_things_banner
   printf 'Fetching from origin..\n'
   git fetch && return 0
   return 1
 }
 
-function git_reset() {
-  banner
+function bash_things_git_reset() {
+  bash_things_banner
   printf 'Resetting all uncommitted changes..\n'
   git reset --hard && return 0
   return 1
 }
 
-function git_reset_soft() {
-  banner
+function bash_things_git_reset_soft() {
+  bash_things_banner
   [ -z "$1" ] && {
     LAST_COMMIT=$(git rev-parse --short HEAD)
     printf "Soft resetting last commit $LAST_COMMIT..\n"
@@ -154,8 +154,8 @@ function git_reset_soft() {
   return 1
 }
 
-function git_reset_hard() {
-  banner
+function bash_things_git_reset_hard() {
+  bash_things_banner
   [ -z "$1" ] && {
     LAST_COMMIT=$(git rev-parse --short HEAD)
     printf "Hard resetting last commit $LAST_COMMIT..\n"
@@ -167,8 +167,8 @@ function git_reset_hard() {
   return 1
 }
 
-function git_revert() {
-  banner
+function bash_things_git_revert() {
+  bash_things_banner
   [ -z "$1" ] && {
     LAST_COMMIT=$(git rev-parse --short HEAD)
     printf "No hash provided. Reverting latest commit $LAST_COMMIT..\n"
