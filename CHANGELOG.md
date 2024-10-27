@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.4
+### Fixed
+- Wrong alias for reset_hard.
+
 ## v0.0.3
 ### Fixed
 - Prefixed all internal function names with bash_things to prevent accidental calls.

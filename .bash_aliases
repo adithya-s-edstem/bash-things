@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VERSION=0.0.3
+VERSION=0.0.4
 
 function bash_things_banner() {
   printf "bash-things - $VERSION\n"
@@ -19,7 +19,7 @@ alias commit='bash_things_git_commit_all'
 alias fetch='bash_things_git_fetch'
 alias reset='bash_things_git_reset'
 alias reset_soft='bash_things_git_reset_soft'
-alias reset_hard='git_reset_hard'
+alias reset_hard='bash_things_git_reset_hard'
 alias revert='bash_things_git_revert'
 
 function bash_things_merge_main() {
